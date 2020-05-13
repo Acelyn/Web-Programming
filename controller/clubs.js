@@ -42,7 +42,7 @@ module.exports.create = function(request, response, next) {
 };
 
 
-// Updaate a club
+// Update a club
 // Put/clubs/:id
 module.exports.update = function(request, response, next) {
   console.log("next");
@@ -52,6 +52,8 @@ module.exports.update = function(request, response, next) {
 };
 
 
+// Delete a Club
+// Delete/clubs/:id
 module.exports.delete = function(request, response, next) {
   Club.findByIdAndDelete(request.params.id)
     .then(club => club ? response.status(200).end() : next())

@@ -41,6 +41,7 @@ router.get('/users', users.index);
 // Update a Club
 router.put('/clubs/:id', clubs.update);
 
+// Delete a Club
 router.delete('/clubs/:id',clubs.delete);
 
 // Export the router
