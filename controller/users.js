@@ -3,7 +3,7 @@ const User = require('../models/user');
 const Club = require('../models/club');
 
 // Handle login requests
-// POST /login (with a user ID in the request body)
+// Post /login (with a user ID in the request body)
 module.exports.login = function(request, response, next) {
   User.findById(request.body.id)
     .then(function(user) {
@@ -18,13 +18,22 @@ module.exports.login = function(request, response, next) {
 };
 
 // Handle signup requests
+// Post/users
 module.exports.create = function(request, response, next) {
   User.create(request.body)
     .then(user => response.status(201).end())
     .catch(error => next(error));
 };
 
+// Handle MyAccount requests
+// Get/users
+module.exports.index = function(request, response, next) {
+  Club.find().then(function(clubs) {
 
+    response.render('users/index', {clubs: clubs});
+
+  }).catch(error => next(error));
+};
 
 
 module.exports.new = function(request, response, next) {
@@ -36,13 +45,7 @@ module.exports.new = function(request, response, next) {
 }
 
 
-module.exports.index = function(request, response, next) {
-  Club.find().then(function(clubs) {
 
-    response.render('users/index', {clubs: clubs});
-
-  }).catch(error => next(error));
-};
 
 
 
