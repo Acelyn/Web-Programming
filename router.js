@@ -15,6 +15,12 @@ router.get('/', function(request, response) {
 // Handle login requests
 router.post('/login', users.login);
 
+// Handle logout requests
+router.get('/logout', function(request, response) {
+  request.session.user = undefined;
+  response.redirect('/');
+});
+
 // Handle club-page request
 router.get('/clubs', clubs.index);
 router.get('/clubs/:id', clubs.retrieve);
