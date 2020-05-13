@@ -27,6 +27,9 @@ router.get('/signup',function(request, response) {
 });
 router.post('/users',users.create);
 
+// Create a new Club
+router.get('/clubs/new', clubs.new);
+
 // Handle club-page request
 router.get('/clubs', clubs.index);
 router.get('/clubs/:id', clubs.retrieve);
@@ -34,8 +37,8 @@ router.get('/clubs/:id', clubs.retrieve);
 // Handle MyAccount page requests
 router.get('/users', users.index);
 
-// Create a new Club 
-router.post('/clubs', clubs.create);
+// Create a new Club
+//router.post('/clubs', clubs.create);
 
 // Export the router
 module.exports = router;
