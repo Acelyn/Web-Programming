@@ -1,6 +1,7 @@
 // Controller for the club collection.
 const Club = require('../models/club');
 
+
 // Handle club-page request
 // Get/clubs
 module.exports.index = function(request, response, next) {
@@ -24,6 +25,7 @@ module.exports.retrieve = function(request, response, next) {
   }).catch(error => next(error));
 };
 
+
 // Create a new Club
 // Get/club/new
 module.exports.new = function(request, response, next) {
@@ -32,10 +34,20 @@ module.exports.new = function(request, response, next) {
 
     .catch(error => next(error));
 }
-
+// Post/clubs
 module.exports.create = function(request, response, next) {
   Club.create(request.body)
     .then(club => response.status(201).send(club.id))
+    .catch(error => next(error));
+};
+
+
+// Updaate a club
+// Put/clubs/:id
+module.exports.update = function(request, response, next) {
+  console.log("next");
+  Club.findByIdAndUpdate(request.params.id, request.body,{runValidators: true})
+    .then(function(club){ if(club) {response.status(200).end();} else{next()}})
     .catch(error => next(error));
 };
 
@@ -48,12 +60,7 @@ module.exports.delete = function(request, response, next) {
 
 
 
-module.exports.update = function(request, response, next) {
-  console.log("next");
-  Club.findByIdAndUpdate(request.params.id, request.body,{runValidators: true})
-    .then(function(club){ if(club) {response.status(200).end();} else{next()}})
-    .catch(error => next(error));
-};
+
 
 
 module.exports.newMember = function(request, response, next) {
