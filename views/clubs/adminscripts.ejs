@@ -17,7 +17,7 @@
          $.ajax({method: 'post', url: '/clubs', data: form.serialize()})
            .done(() => alert('Update successfully.'))
            .done(() => form.find('.form-control').removeClass('bg-dark text-white'))
-          // .done(() => window.location.reload())
+           .done(() => window.location.reload())
            .fail(error => alert('Fail to update the club.'));
          }
      <%_ } else{ -%>
