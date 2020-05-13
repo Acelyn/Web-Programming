@@ -25,12 +25,14 @@ router.get('/logout', function(request, response) {
 router.get('/signup',function(request, response) {
   response.render('signup');
 });
-
 router.post('/users',users.create);
 
 // Handle club-page request
 router.get('/clubs', clubs.index);
 router.get('/clubs/:id', clubs.retrieve);
+
+// Handle MyAccount page requests
+router.get('/users', users.index);
 
 
 // Export the router
