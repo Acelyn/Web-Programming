@@ -21,6 +21,11 @@ router.get('/logout', function(request, response) {
   response.redirect('/');
 });
 
+// Handle signup requests
+router.get('/signup',function(request, response) {
+  response.render('signup');
+});
+
 // Handle club-page request
 router.get('/clubs', clubs.index);
 router.get('/clubs/:id', clubs.retrieve);
