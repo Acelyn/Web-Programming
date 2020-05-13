@@ -12,9 +12,11 @@ router.get('/', function(request, response) {
   response.render('index');
 });
 
-
 // Handle login requests
 router.post('/login', users.login);
+
+// Handle club-page request
+router.get('/clubs', clubs.index);
 
 
 // Export the router
