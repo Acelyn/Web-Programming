@@ -2,6 +2,10 @@
 <script>
 
  // Update a club
+ $(document).on('input', '.form-control', function(event) {
+     $(this).addClass('bg-dark text-white');
+   });
+
  $('#update').on('submit', function(event) {
    console.log("j");
    const form = $(this);
