@@ -16,6 +16,7 @@ router.get('/', function(request, response) {
 router.post('/login', users.login);
 
 // Handle club-page request
+router.get('/clubs', clubs.index);
 router.get('/clubs/:id', clubs.retrieve);
 
 
