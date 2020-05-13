@@ -16,13 +16,14 @@
        if (confirm('Update this club from the site?')) {
          $.ajax({method: 'post', url: '/clubs', data: form.serialize()})
            .done(() => alert('Update successfully.'))
-           .done(() => form.find('.form-control').removeClass('bg-dark text-white'))
+
            .done(() => window.location.reload())
            .fail(error => alert('Fail to update the club.'));
          }
      <%_ } else{ -%>
        if (confirm('Update this club from the site?')) {
          $.ajax({method: 'put', url: '/clubs/<%= club._id -%>', data: form.serialize()})
+           .done(() => form.find('.form-control').removeClass('bg-dark text-white'))
            .done(() => alert('Update successfully.'))
            .fail(error => alert('Fail to update the club.'));
        }
