@@ -3,6 +3,8 @@
   <input type="text" name="_id" placeholder="Name of the Club/Theme house" value="<%= club._id -%>" class="form-control form-control-lg font-weight-bold mb-1">
   <h4>Introduction</h4>
   <textarea name="introduction" placeholder="Description" rows="3" class="form-control mb-1"><%= club.introduction -%></textarea>
+  <h4>Membership</h4>
+  <p id="mem"><a>Membership:  </a><%= club.memberList.length -%>+<%= club.officerList.length -%></p>
   <h4>Meeting Time</h4>
   <textarea name="meetingTime" placeholder="Meeting Time" rows="1" class="form-control mb-1"><%= club.meetingTime -%></textarea>
   <h4>Meeting Location</h4>
@@ -30,6 +32,7 @@
   <button class="btn btn-primary mt-1" id = "impeach">impeach</button>
 
   <%_ if (Object.entries(club).length !== 0) {-%>
+
   <h4>Member List</h4>
     <select multiple name="memberList" size="<%= club.memberList.length -%>" class="form-control w-auto mb-1">
      <%_ for (const id of club.memberList) { -%>
