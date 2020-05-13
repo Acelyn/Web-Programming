@@ -45,7 +45,6 @@ router.put('/clubs/:id', clubs.update);
 router.delete('/clubs/:id',clubs.delete);
 
 
-router.put('/clubs',clubs.retrieve);
 
 // Export the router
 module.exports = router;
