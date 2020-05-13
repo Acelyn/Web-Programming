@@ -24,20 +24,20 @@ module.exports.retrieve = function(request, response, next) {
   }).catch(error => next(error));
 };
 
+// Create a new Club
+// Get/club/new
+module.exports.new = function(request, response, next) {
+  Club.distinct('_id')
+    .then(clubIDs => response.render('clubs/index', {club: {}, clubIDs: clubIDs}))
+
+    .catch(error => next(error));
+}
 
 module.exports.create = function(request, response, next) {
   Club.create(request.body)
     .then(club => response.status(201).send(club.id))
     .catch(error => next(error));
 };
-
-module.exports.new = function(request, response, next) {
-
-  Club.distinct('_id')
-    .then(clubIDs => response.render('clubs/index', {club: {}, clubIDs: clubIDs}))
-
-    .catch(error => next(error));
-}
 
 
 module.exports.delete = function(request, response, next) {
