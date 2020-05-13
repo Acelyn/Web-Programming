@@ -1,0 +1,43 @@
+<form id="update" class="form">
+  <h4>Club Name</h4>
+  <input type="text" name="_id" placeholder="Name of the Club/Theme house" value="<%= club._id -%>" class="form-control form-control-lg font-weight-bold mb-1">
+  <h4>Introduction</h4>
+  <textarea name="introduction" placeholder="Description" rows="3" class="form-control mb-1"><%= club.introduction -%></textarea>
+  <h4>Meeting Time</h4>
+  <textarea name="meetingTime" placeholder="Meeting Time" rows="1" class="form-control mb-1"><%= club.meetingTime -%></textarea>
+  <h4>Meeting Location</h4>
+  <textarea name="meetingLocation" placeholder="Meeting Location" rows="1" class="form-control mb-1"><%= club.meetingLocation -%></textarea>
+  <h4>Coming Event</h4>
+  <textarea name="comingEvent" placeholder="Coming Event" rows="1" class="form-control mb-1"><%= club.comingEvent -%></textarea>
+  <h4>Past Event</h4>
+  <textarea name="pastEvent" placeholder="Past Event" rows="1" class="form-control mb-1"><%= club.pastEvent -%></textarea>
+ <h4>Officer List</h4>
+  <%_ if (Object.entries(club).length === 0 || club.officerList.indexOf(user._id)>=0){ -%>
+    <select multiple name="officerList" size="<%= club.officerList.length -%>" class="form-control w-auto mb-1">
+      <%_ for (const id of club.officerList) { -%>
+        <%_ const status = club.officerList.includes(id) ? 'selected' : 'unselected' ; -%>
+        <option <%= status -%> value="<%= id -%>"> <%= id -%></option>
+      <%_ } -%>
+    </select>
+  <%_ } -%>
+  <button class="btn btn-primary mt-1" id = "impeach">impeach</button>
+  <h4>Member List</h4>
+  <%_ if (Object.entries(club).length === 0 || club.officerList.indexOf(user._id)>=0){ -%>
+    <select multiple name="memberList" size="<%= club.memberList.length -%>" class="form-control w-auto mb-1">
+     <%_ for (const id of club.memberList) { -%>
+       <%_ const status = club.memberList.includes(id) ? 'selected' : 'unselected' ; -%>
+       <option <%= status -%> value="<%= id -%>"> <%= id -%></option>
+     <%_ } -%>
+    </select>
+   <%_ } -%>
+   <button class="btn btn-primary mt-1" id ="promote" >promote</button>
+   <button class="btn btn-primary mt-1" id ="remove" >remove</button>
+
+   <div class="mt-3">
+     <button class="btn btn-primary" id="updateButton">Save</button>
+     <button id="delete" class="uninsert btn btn-primary">Delete</button>
+
+   </div>
+
+
+</form>

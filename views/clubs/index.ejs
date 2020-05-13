@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../head'); -%>
+  <body>
+    <%- include('../navbar', {active: 'clubs'}); -%>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-auto p-3 border-right">
+          <nav class="nav nav-pills flex-column">
+            <%_ for (const id of clubIDs) { -%>
+              <%_ const status = (id === club._id) ? 'active BROWN' : 'inactive'; -%>
+              <a href="/clubs/<%=  id -%>" class="nav-item nav-link <%= status -%>"><%= id -%></a>
+            <%_ } -%>
+          </nav>
+
+
+          <a href="/clubs/new" class= "mt-5">Create a New Club</a>
+            <!-- <input type="text" name="clubid" placeholder="Name of the Club/Theme house" size="1" class="form-control"> -->
+
+
+        </div>
+        <div class="col">
+          <main class="p-3">
+            <%_ if (Object.entries(club).length === 0 || club.officerList.indexOf(user._id)>=0){ -%>
+              <%- include('./edit', {club: club, clubIDs: clubIDs}); -%>
+            <%_ } else { -%>
+              <%- include('./browse', {club: club}); -%>
+            <%_ } -%>
+          </main>
+        </div>
+      </div>
+    </div>
+    <%_ if (Object.entries(club).length === 0 || club.officerList.indexOf(user._id)>=0){ -%>
+      <%- include('./adminscripts', {club: club}); -%>
+    <%_ }else if(user){ -%>
+      <%- include('./userscripts', {club: club}); -%>
+    <%_ } -%>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+
+ // Update a club
+ $('#updateButton').on('click', function(event) {
+   console.log("j");
+   const form = $(this);
+   event.preventDefault();
+
+
+     <%_ if (Object.entries(club).length === 0) {-%>
+       if (confirm('Update this club from the site?')) {
+         $.ajax({method: 'post', url: '/clubs', data: form.serialize()})
+           .done(() => alert('Update successfully.'))
+           .done(() => window.location.reload())
+           .fail(error => alert('Fail to update the club.'));
+         }
+     <%_ } else{ -%>
+       if (confirm('Update this club from the site?')) {
+         $.ajax({method: 'put', url: '/clubs/<%= club._id -%>', data: form.serialize()})
+           .done(() => alert('Update successfully.'))
+           .fail(error => alert('Fail to update the club.'));
+       }
+     <%_ } -%>
+
+ });
+
+
+ // Delete a club
+ $('#delete').on('click', function(event) {
+   const form = $(this);
+
+   event.preventDefault();
+   if (confirm('Delete all traces of this club from the site?')) {
+     $.ajax({method: 'delete', url: '/clubs/<%= club.id -%>'})
+       .done(() => window.location.replace('/clubs'))
+       .fail(error => alert('Fail to delete the club.'));
+   }
+ });
+
+
+ // impeach a officer
+
+
+
+</script>

@@ -1,0 +1,32 @@
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+
+  $('#clubsinfo').on('submit', function(event) {
+    const form = $(this);
+    event.preventDefault();
+    $.ajax({method: 'put', url: '/clubs/<%= club._id -%>'})
+      .done(() => alert('Join in successfully.'))
+        .fail(error => alert('You are already in this club.'));
+
+
+      <%_console.log(club.memberList)-%>
+      <%_ club.memberList.push(user._id); -%>
+      <%_console.log(club.memberList)-%>
+      <%_ newMemberList = Object.entries(club.memberList).push(user._id)-%>
+      <%_ console.log(club._id); -%>
+
+
+
+
+
+
+
+
+
+   });
+
+
+
+
+
+</script>
