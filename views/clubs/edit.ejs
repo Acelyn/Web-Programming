@@ -11,7 +11,7 @@
   <textarea name="comingEvent" placeholder="Coming Event" rows="1" class="form-control mb-1"><%= club.comingEvent -%></textarea>
   <h4>Past Event</h4>
   <textarea name="pastEvent" placeholder="Past Event" rows="1" class="form-control mb-1"><%= club.pastEvent -%></textarea>
-  <%_ if (Object.entries(club).length === 0) {-%>
+  <%_ if (Object.entries(club).length !== 0) {-%>
     <h4>officer List</h4>
     <select multiple name="officerList" size="<%= club.officerList.length -%>" class="form-control w-auto mb-1">
       <%_ for (const id of club.officerList) { -%>
