@@ -1,7 +1,7 @@
 // Router for content requests.
 const express = require('express');
-const clubs = require('./controllers/clubs');
-const users = require('./controllers/users');
+const clubs = require('./controller/clubs');
+const users = require('./controller/users');
 
 
 // Create the router
