@@ -19,13 +19,13 @@
   <textarea name="pastEvent" placeholder="Past Event" rows="1" class="form-control mb-1"><%= club.pastEvent -%></textarea>
   <%_ if (Object.entries(club).length !== 0) {-%>
     <h4>officer List</h4>
-    <select multiple name="officerList" size="<%= club.officerList.length -%>" class="form-control w-auto mb-1">
+
       <%_ for (const id of club.officerList) { -%>
         <input class="form-check-input" type="checkbox" id="check" name="check" value="<%= id -%>"><label class="form-check-label" for="check1"><%= id -%></label>);
-        
+
       <%_ } -%>
       <button class="btn btn-primary mt-1" id = "impeach">impeach</button>
-    </select>
+  
 
   <%_ }else{-%>
       <h4>officer List</h4>
