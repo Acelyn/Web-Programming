@@ -4,7 +4,7 @@
   <h4>Introduction</h4>
   <textarea name="introduction" placeholder="Description" rows="3" class="form-control mb-1"><%= club.introduction -%></textarea>
   <h4>Membership</h4>
-  <p id="mem"><a>Membership:  </a><%= club.memberList.length -%>+<%= club.officerList.length -%></p>
+  <p id="mem"><%= club.memberList.length +club.officerList.length -%></p>
   <h4>Meeting Time</h4>
   <textarea name="meetingTime" placeholder="Meeting Time" rows="1" class="form-control mb-1"><%= club.meetingTime -%></textarea>
   <h4>Meeting Location</h4>
