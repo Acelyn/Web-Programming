@@ -26,6 +26,8 @@ router.get('/signup',function(request, response) {
   response.render('signup');
 });
 
+router.post('/users',users.create);
+
 // Handle club-page request
 router.get('/clubs', clubs.index);
 router.get('/clubs/:id', clubs.retrieve);
