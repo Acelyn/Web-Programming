@@ -40,5 +40,7 @@ router.get('/users', users.index);
 // Create a new Club
 router.post('/clubs', clubs.create);
 
+router.put('/clubs/:id', clubs.update);
+
 // Export the router
 module.exports = router;
