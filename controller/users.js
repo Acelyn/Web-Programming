@@ -17,13 +17,15 @@ module.exports.login = function(request, response, next) {
     }).catch(error => next(error));
 };
 
-
-
-module.exports.signup = function(request, response, next) {
+// Handle signup requests
+module.exports.create = function(request, response, next) {
   User.create(request.body)
-  .then(user => response.status(201).send(club.id))
-  .catch(error => next(error));
+    .then(user => response.status(201).end())
+    .catch(error => next(error));
 };
+
+
+
 
 module.exports.new = function(request, response, next) {
 
@@ -42,12 +44,6 @@ module.exports.index = function(request, response, next) {
   }).catch(error => next(error));
 };
 
-
-module.exports.create = function(request, response, next) {
-  User.create(request.body)
-    .then(user => response.status(201).end())
-    .catch(error => next(error));
-};
 
 
 module.exports.delete = function(request, response, next) {
