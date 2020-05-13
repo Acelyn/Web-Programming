@@ -13,5 +13,9 @@ router.get('/', function(request, response) {
 });
 
 
+// Handle login requests
+router.post('/login', users.login);
+
+
 // Export the router
 module.exports = router;
