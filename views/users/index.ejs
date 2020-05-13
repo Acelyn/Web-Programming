@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../head'); -%>
+  <body>
+    <%- include('../navbar', {active: 'accounts'}); -%>
+    <div class="jumbotron bg-white" id="centered">
+      <h2 class="display-4">Hello, <%= user._id -%>!</h2>
+      <hr class="my-4">
+
+
+
+      <div class="row">
+        <div class="col border m-4 p-4">
+          <p>Club(s)/Theme house(s) that you are a member of: </p>
+          <p id = "memberOf"></p>
+
+            <%_ for (const club of clubs) { -%>
+              <%_ if (club.memberList.indexOf(user._id)>=0){ -%>
+
+                  <a herf="/clubs/<%= club._id -%>"><%=  club._id -%></a>
+
+              <%_ } -%>
+            <%_ } -%>
+
+        </div>
+        <div class="col border m-4 p-4">
+          <p>Club(s)/Theme house(s) that you are an officer of:</p>
+          <p id = "officerOf"></p>
+          <ul>
+            <%_ for (const club of clubs) { -%>
+              <%_ if (club.officerList.indexOf(user._id)>=0){ -%>
+                <li>
+                  <a herf="/clubs/<%= club._id -%>"><%=  club._id -%></a>
+                </li>
+              <%_ } -%>
+            <%_ } -%>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+      <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Create a new club/theme house</a> -->
+    </div>
+  </body>
+</html>
